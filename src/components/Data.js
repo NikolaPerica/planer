@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../firebase/index";
+import './Data.css';
 import {
   CardDeck,
   Col,
@@ -270,29 +271,29 @@ class Data extends Component {
             return (
               <div key={index}>
                 <Col sm="2.5">
-                  <Card>
-                    <CardHeader>
+                  <Card >
+                    <CardHeader body inverse style={{ backgroundColor: '#A4BBDD', margin: '-1px' }}>
                       {list.listName}
-                      <Button
+                      &nbsp;&nbsp;<Button
                         onClick={() => {
                           this._handleDeleteList(list.key);
                         }}
                         close
-                      />
-                    </CardHeader>
+                      />&nbsp;&nbsp;
+                    </CardHeader >
                     {cards.map((card, indexTask) => {
                       return (
                         <CardBody key={indexTask}>
                           <div>
-                            <CardText>
+                            <CardText >
                               {card.cardName}
-                              <Button
+                              &nbsp;&nbsp;<Button
                                 onClick={() => {
                                   this._handleDeleteCard(card.key);
                                 }}
                                 close
                               />
-                            </CardText>
+                            </CardText>&nbsp;&nbsp;
                             {index >= 1 ? (
                               <Button
                                 onClick={() => {
@@ -300,18 +301,18 @@ class Data extends Component {
                                 }}
                               >
                                 Left
-                              </Button>
+                              </Button> 
                             ) : (
                               <Button disabled>Left</Button>
                             )}
-                            <Button
+                            &nbsp;&nbsp;<Button
                               onClick={() => {
                                 this._handleChooseCard(card.key);
                                 this.toggle();
                               }}
                             >
                               Edit
-                            </Button>
+                            </Button>&nbsp;&nbsp;
                             <Modal
                               isOpen={this.state.editing}
                               toggle={this.toggle}
@@ -362,7 +363,7 @@ class Data extends Component {
                           placeholder="Add a task"
                           value={this.state.cardName}
                           onChange={this._handleChange}
-                        />
+                        />&nbsp;&nbsp;
                         <Button
                           onClick={(key, title, index, e) =>
                             this._saveCard(
@@ -392,7 +393,7 @@ class Data extends Component {
                     placeholder="Add a list"
                     value={this.state.listName}
                     onChange={this._handleChange}
-                  />
+                  />&nbsp;&nbsp;
                   <Button onClick={() => this._saveList()}>Save</Button>
                 </div>
               </CardHeader>
